@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Creating Element and Text Node</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        var elementNode = document.createElement('div');
+
+        console.log(elementNode, elementNode.nodeType); /* log <div> 1, and 1 indicates
+            an element node */
+        var textNode = document.createTextNode('Hi');
+        console.log(textNode, textNode.nodeType); /* logs Text {} 3, and 3 indicates
+        a text node */
+    </script>
+</body>
+</html>

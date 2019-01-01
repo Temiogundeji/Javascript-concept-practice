@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <header>QuickNote Temi</header>
+        <textarea></textarea>
+        <button>Add Note</button>
+        <div id="note-contain"></div>
+    </div>
+    <script>
+        const btnNew =  document.querySelector("button");
+        function newNote(){
+            let userNote  = document.querySelector("textarea").value;
+            let noteContain = document.getElementById("note-contain");
+            let note = document.createElement("p");
+
+            let text = document.createTextNode(userNote);
+            note.appendChild(text);
+            noteContain.appendChild(note);
+        }
+        function clearField(){
+            document.querySelector("textarea").value = "";
+        }
+        btnNew.addEventListener("click",newNote);
+        btnNew.addEventListener("click",clearField);
+
+    </script>
+    <style>
+        #container{
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            /* padding:50px auto; */
+        }
+        header{
+            color:#fff;
+            background-color: orangered;   
+            font-size:22px; 
+            padding:10px 20px;
+            margin-bottom: 10px;
+        }
+        textarea{
+            border-radius:5px;
+            padding:20px;
+            max-width:200px;
+            max-height:150px;
+        }
+        button{
+            border:0;
+            background-color:greenyellow;
+            color:orangered;
+            font-weight:900;
+            margin-top:10px;
+            padding:10px;
+        }
+    </style>
+</body>
+</html>

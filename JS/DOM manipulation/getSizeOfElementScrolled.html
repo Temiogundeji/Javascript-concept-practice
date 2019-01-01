@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+*{margin:0;padding:0;}
+div{height:100px;width:100px; overflow:auto;}
+p{height:1000px;width:1000px;background-color:red;}
+</style>
+</head>
+<body>
+<div><p></p></div>
+<script>
+var div = document.querySelector('div');
+console.log(div.scrollHeight, div.scrollWidth); //logs '1000 1000'
+</script>
+</body>
+</html>

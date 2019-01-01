@@ -1,0 +1,29 @@
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>replaceNode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head> -->
+<body>
+    <duv id="a">Hello!</duv>
+    <div id="b">Dude</div>
+
+    <script>
+        let divA = document.getElementById('a');
+        let newSpan = document.createElement('span');
+        newSpan.textContent = 'Howdy';
+        divA.parentNode.replaceChild(newSpan, divA);
+
+        let divB =  document.getElementById('b');
+        let newText = document.createTextNode('Awayou!');
+        divB.parentNode.replaceChild(newText, divB);
+
+        console.log(document.body.innerHTML);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document Exercise3 -- Catch Simple Todo App</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">This is a paragraph</p>
+        <p id="p2">This is another one</p>
+
+        <input type="text" placeholder="What you want to do!">
+        <button>Add todo</button>
+    </div>
+    <div id="div2"></div>
+    <script>
+        
+        let para = document.createElement('p');
+        let text = document.createTextNode('This is really awesome');
+        para.appendChild(text);
+        let element = document.getElementById('div1');
+        //element.appendChild(para);
+
+
+        let input = document.querySelector('input').value;
+        const todoContain =  document.getElementById('div2');
+        const button = document.querySelector('button');
+        
+        function addNewTodo(){
+            // let newTodo = document.createTextNode(`${input}`);
+            let newTodo = document.createTextNode("This is the real text");
+            newTodo.textContent =`${input}`;
+            todoContain.appendChild(newTodo);
+            element.appendChild(para);
+            console.log(newTodo);
+        }
+        button.addEventListener("click", addNewTodo);
+    </script>
+</body>
+</html>

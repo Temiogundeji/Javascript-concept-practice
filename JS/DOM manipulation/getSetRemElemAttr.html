@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<a href='#' title="title" data-foo="dataFoo" style="margin:0;" class="yes"
+foo="boo" hidden="hidden">#link</a>
+<script>
+var atts = document.querySelector('a');
+//remove attributes
+atts.removeAttribute('href');
+atts.removeAttribute('title');
+atts.removeAttribute('style');
+atts.removeAttribute('data-foo');
+atts.removeAttribute('class');
+atts.removeAttribute('foo'); //custom attribute
+atts.removeAttribute('hidden'); //boolean attribute
+//set (really re-set) attributes
+atts.setAttribute('href','#');
+atts.setAttribute('title','title');
+atts.setAttribute('style','margin:0;');
+atts.setAttribute('data-foo','dataFoo');
+atts.setAttribute('class','yes');
+atts.setAttribute('foo','boo');
+atts.setAttribute('hidden','hidden'); /* boolean attribute requires sending the
+attribute as the value too */
+//get attributes
+console.log(atts.getAttribute('href'));
+console.log(atts.getAttribute('title'));
+console.log(atts.getAttribute('style'));
+console.log(atts.getAttribute('data-foo'));
+console.log(atts.getAttribute('class'));
+console.log(atts.getAttribute('foo'));
+console.log(atts.getAttribute('hidden'));
+</script>
+</body>
+</html>

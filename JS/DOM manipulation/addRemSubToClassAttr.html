@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="shadow">Welcome To My World!!</h2>
+
+    <script>
+        let title = document.querySelector('h1');
+        title.style.textAlign = 'center';
+        title.style.textShadow = `blue ${5}px`;
+        
+        title.addEventListener("click",()=>{
+            // title.classList.add('shadow');
+            title.classList.toggle('shadow');
+        });
+    </script>
+    <style>
+        .shadow{
+            background-color:orangered;
+            padding:5px 7px;
+            box-shadow: 5px 2px rgb(0, 0, 0,0.5);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- This code returns all the node properties and methods of the ELEMENT_NODE inherited properties from the NODE object. -->
+
+<html>
+    <head>
+        <title>NodeType Inherited Properties</title>
+    </head>
+    <body>
+        <a href="#">Hello World</a>
+        <script>
+            //get reference to element node object
+            var nodeAnchor = document.querySelector('a');
+            //create props array to store property keys for element node object
+            var props = [];
+            //loop over element node object getting all properties and methods (inherited too)
+            for(var key in nodeAnchor){
+            props.push(key);
+            }
+            //log alphabetical list of properties and methods
+            console.log(props.sort());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<body><i id="elm">how</i>
+<script>
+var elm = document.getElementById('elm');
+elm.insertAdjacentHTML('beforebegin', '<span>Hey-</span>');
+elm.insertAdjacentHTML('afterbegin', '<span>dude-</span>');
+elm.insertAdjacentHTML('beforeend', '<span>-are</span>');
+elm.insertAdjacentHTML('afterend', '<span>-you?</span>');
+console.log(document.body.innerHTML);
+/* logs
+<span>Hey-</span><i id="A"><span>dude-</span>how<span>-are</span></i>
+<span>-you?</span>
+*/
+</script>
+</body>
+</html>

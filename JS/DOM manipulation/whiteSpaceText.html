@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<p id="p1"></p>
+<p id="p2"> </p>
+<script>
+console.log(document.querySelector('#p1').firstChild) //logs null
+console.log(document.querySelector('#p2').firstChild.nodeName) //logs #text
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+﻿Node Object Types in javascript
+DOCUMENT_NODE (window.document)
+ELEMENT_NODE (<body>,<a>,<p> etc)
+ATTRIBUTE_NODE (e.g class="funEdges")
+TEXT_NODE (e.g text characters in an HTML document including carriage return and white-spaces)
+DOCUMENT_FRAGMENT_NODE()
+
+NB:
+Subnode objects inherits from the node objects
+
+Each node object in a typical DOM tree inherits properties and methods from Node.
+Depending on the type of node in the document, there are also additional subnode
+objects/interfaces that extend the Node object. The following list details the inheritance
+model implemented by browsers for the most common node interfaces (< indicates
+�inherited from�):
+� Object < Node < Element < HTMLElement < (e.g., HTML*Element)
+� Object < Node < Attr (this is deprecated in DOM4)
+� Object < Node < CharacterData < Text
+� Object < Node < Document < HTMLDocument
+� Object < Node < DocumentFragment
+It�s important to remember not only that all node types inherit from Node, but also that
+the chain of inheritance can be long. For example, all HTMLAnchorElement nodes inherit
+properties and methods from HTMLElement, Element, Node, and Object objects.
+
+Properties and Methods for working with nodes.
+
+As we have been discussing, all node objects (e.g., Element, Attr, Text, and so on) inherit
+properties and methods from a primary Node object. These properties and methods are
+the baseline values and functions for manipulating, inspecting, and traversing the DOM.
+In addition to the properties and methods provided by the node interface, a great deal
+of other relevant properties and methods are provided by subnode interfaces such as
+the document, HTMLElement, and HTML*Element interfaces.
+
+Node Properties
+1.childNodes
+2.firstChild
+3.lastChild
+� nextSibling
+� nodeName
+� nodeType
+� nodeValue
+� parentNode
+� previousSibling
+
+Node Methods
+appendChild()
+cloneNode()
+compareDocumentPosition()
+contain()
+hasChildNodes()
+insertBefore()
+isEqualNode()
+removeChild()
+replaceChild()
+
+Document Methods
+document.createElement()
+document.createTextNode()
+
+HTML Element properties
+innerHTML
+outerHTML
+textContext
+innerText
+firstElementChild
+lastElementChild
+nextElementChild
+previousElementChild
+children
+
+HTML element method
+insertAdjacentHTML()
+
+
+Node
+Interface/constructor nodeType (returned from .nodeType)
+HTML*Element [e.g., HTMLBodyElement] 1 (i.e., ELEMENT_NODE)
+Text 3 (i.e., TEXT_NODE)
+Attr 2 (i.e., ATTRIBUTE_NODE)
+HTMLDocument 9 (i.e., DOCUMENT_NODE)
+DocumentFragment 11 (i.e., DOCUMENT_FRAGMENT_NODE)
+DocumentType 10 (i.e., DOCUMENT_TYPE_NODE)
+
+
+1.5 Identifying the Type and Name of a Node
+Every node has a nodeType and nodeName property that is inherited from Node. For
+example, Text nodes have a nodeType code of 3 and a nodeName value of #text. As I
+mentioned previously, the numeric value 3 is a numeric code representing the type of
+underlying object the node represents (i.e., Node.TEXT_NODE === 3).
+Here are the values returned for nodeType and nodeName for the node objects discussed
+in this book. It makes sense to simply memorize these numeric codes for for the more
+common nodes, given that we are only dealing with five numeric codes.
+In case it�s not obvious, the fastest way to determine whether a node is of a certain type
+is to simply check its nodeType property. In the following code, I check to see if the
+anchor element has a node number of 1. If it does, I can conclude that it�s an Element
+node, because Node.ELEMENT_NODE === 1.
+
+Determining the type of node you might be scripting can be very handy if you want to
+know which properties and methods are available to script the node.
+
+Getting a Node�s Value
+The nodeValue property returns null for most of the node types (except Text and
+Comment). Its use is centered on extracting actual text strings from Text and Comment
+nodes. In the following code, I demonstrate its use on all the nodes discussed in this
+book.
+
+Using JavaScript Methods to Create Element and Text
+Nodes
+When a browser parses an HTML document, it constructs the nodes and tree based on
+the contents of the HTML file. The browser deals with the creation of nodes for the
+initial loading of the HTML document. However, it�s possible to create your own nodes
+using JavaScript. The following two methods allow us to programmatically create
+Element and Text nodes using JavaScript:
+� createElement()
+� createTextNode()
+Other methods are available but are not commonly used (e.g., createAttribute() and
+createComment()). In the following code, I show how simple it is to create element and
+text nodes.
+Note
+Text or Comment node values can be set by providing new string values
+for the nodeValue property (i.e., document.body.firstElementChild.nodeValue = 'hi').
+
+Node.ELEMENT_NODE ---- 1
+Node.TEXT_NODE ----3
+Node.COMMENT_NOTE ----8
+Node.DOCUMENT_TYPE_NODE ---10
+Node.DOCUMENT_FRAGMENT_NODE ----11
+Node.DOCUMENT_NODE ---9
+
+Creating Element and Text Node
+Notes
+The createElement() method accepts one parameter that is a string
+specifying the element to be created. The string is the same string that
+is returned from the tagName property of an Element object.
+The createAttribute() method is deprecated and should not be used
+for creating attribute nodes. Instead, developers typically use the get
+Attribute(), setAttribute(), and removeAttribute() methods. I
+will discuss this in more detail in Chapter 3.
+The createDocumentFragment() method will be discussed in Chapter
+8.
+You should be aware that a createComment() method is available for
+creating comment nodes. It�s not discussed in this book, but is available
+to any developer who finds its usage valuable.
+The createAttribute() method is deprecated and should not be used
+for creating attribute nodes. Instead, developers typically use the get
+Attribute(), setAttribute(), and removeAttribute() methods.
+
+Using javascript to Create and Add Element and Text Node to the DOM
+
+The insertAdjacentHTML() method, which only works on Element nodes, is a good
+deal more precise than the previously mentioned methods. Using this method, it�s possible
+to insert nodes before the beginning tag, after the beginning tag, before the end
+tag, and after the end tag. In the following code, I construct a sentence using the
+insertAdjacentHTML() method.
+
+Notes
+The innerHTML property will convert HTML elements found in the string to
+actual DOM nodes, while textContent can only be used to construct text
+nodes. If you pass textContent a string containing HTML elements, it will
+simply spit it out as text.
+document.write() can also be used to simultaneously create and add nodes to
+the DOM. However, it�s typically not used unless its usage is required to accomplish
+third-party scripting tasks. Basically, the write() method will output
+to the page the values passed to it during page loading/parsing. You should be
+aware that using the write() method will stall/block the parsing of the HTML
+document being loaded.
+innerHTML invokes a heavy and expensive HTML parser, whereas text node
+generation is trivial; thus, use innerHTML and friends sparingly.
+The insertAdjacentHTML options beforebegin and afterend will only work
+if the node is in the DOM tree and has a parent element.
+Support for outerHTML was not available natively in Firefox until version 11. A
+polyfill is available.
+textContent gets the content of all elements, including <script> and <style>
+elements, but innerText does not.
+innerText is aware of style and will not return the text of hidden elements,
+whereas textContent will.
+Available to all modern browsers except Firefox are insertAdjacentElement()
+and insertAdjacentText().
+
+Note
+The textContent, innerText, and outerText properties, when being
+read, will return all the text nodes contained within the selected node.
+So, as an example (note that this is not a good idea in practice), docu
+ment.body.textContent will get all the text nodes contained in the
+body element, not just the first text node.
+
+Using appendChild() and insertBefore() to Add Node
+Objects to the DOM
+The appendChild() and insertBefore() node methods allow us to insert JavaScript
+node objects into the DOM tree. The appendChild() method will append a node (or
+multiple nodes) to the end of the child node(s) of the node the method is called on. If
+there is no child node(s), the node being appended is appended as the first child. For
+example in the following code, I am creating an element node (<strong>) and a text
+node (Dude). Then the <p> element is selected from the DOM and the <strong> element
+is appended using appendChild(). Notice that the <strong> element is encapsulated
+inside the <p> element and added as the last child node. Next, the <strong> element is
+selected and the text Dude is appended to the <strong> element.
+When it becomes necessary to control the location of insertion beyond appending nodes
+to the end of a child list of nodes, we can use insertBefore(). In the following code, I
+am inserting the <li> element before the first child node of the <ul> element.
+
+Using removeChild() and replaceChild() to Remove
+and Replace Nodes
+Removing a node from the DOM is a bit of a multistep process. First you have to select
+the node you want to remove. Then you need to gain access to its parent element,
+typically by using the parentNode property. It’s on the parent node that you invoke the
+removeChild() method, passing it the reference to the node to be removed. Here I
+demonstrate its use on an element node and a text node.
+
+Replacing an element or text node is not unlike removing one. In the following code, I
+use the same HTML structure as in the preceding code example, except this time, I use
+replaceChild() to update the nodes instead of removing them.
+
+Getting a List/Collection of All Immediate Child
+Nodes
+Using the childNodes property produces an array-like list [i.e., NodeList] of the immediate
+child nodes. In the following code, I select the <ul> element, which I then use
+to create a list of all the immediate child nodes contained inside the <ul>.
+
+Traversing Nodes in the DOM
+From a node reference (i.e., document.querySelector('ul')), it’s possible to get a different
+node reference by traversing the DOM using the following properties:
+
+• parentNode
+• firstChild
+• lastChild
+• nextSibling
+• previousSibling
+In the following code example, I examine the Node properties providing DOM traversal
+functionality.
+
+Verifying a Node Position in the DOM Tree with
+contains() and compareDocumentPosition()
+It’s possible to know whether a node is contained inside another node by using the
+contains() node method. In the following code I ask if <body> is contained inside
+<html lang="en">.
+
+Notes
+Given that the classList is an array-like collection, it has a read-only
+length property.
+classList is read-only but can be modified using the add(), re
+move(), contains(), and toggle() methods.

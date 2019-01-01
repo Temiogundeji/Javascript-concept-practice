@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+   <div id="a">
+       <i>Hi</i>
+   </div>
+   <div id="b">
+       Dude <strong>!</strong>
+   </div>
+    <script>
+        console.log(document.getElementById('b').innerHTML);
+        console.log(document.getElementById('a').outerHTML);/* logs
+        <div id="A">Hi</div> */
+        /* notice that all text is returned even if it's in child element nodes
+        (i.e., <strong> !</strong>) */
+        console.log(document.getElementById('B').textContent); //logs 'Dude !'
+        //NON standard extensions below i.e., innerText and outerText
+        console.log(document.getElementById('B').innerText); //logs 'Dude !'
+        console.log(document.getElementById('B').outerText); //logs 'Dude !'
+
+        
+    </script>
+</body>
+</html>

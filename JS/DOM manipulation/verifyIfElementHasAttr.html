@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<a href='#' title="title" data-foo="dataFoo" style="margin:0;" class="yes"
+goo></a>
+<script>
+var atts = document.querySelector('a');
+console.log(
+atts.hasAttribute('href'),
+atts.hasAttribute('title'),
+atts.hasAttribute('style'),
+atts.hasAttribute('data-foo'),
+atts.hasAttribute('class'),
+atts.hasAttribute('goo') /* Notice this is true regardless of whether a value
+is defined */
+)
+</script>
+</body>
+</html>

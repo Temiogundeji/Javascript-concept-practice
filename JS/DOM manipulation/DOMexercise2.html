@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document Exercise2</title>
+</head>
+<body>
+    <!-- <ul id="list">
+        <li class="box">jhhj bhj</li>
+        <li class="box">dsv</li>
+        <li class="box">sdfs</li>
+    </ul> -->
+    <h1 id="intro">Fullrange</h1> 
+    <p id="demo"></p>
+    <style>
+        .box{
+            background-color:brown;
+            color:#fff;
+            height:200px;
+            margin-bottom:50px;
+            width:400px;
+        }
+    </style>
+    <script>
+        // const boxes = Array.from(document.querySelectorAll('.box'));
+        // const text = document.createTextNode('Mera Text');
+        
+        //     boxes.forEach(box =>{
+        //         box.appendChild(text);
+        //         console.log(box);
+        //     });
+
+        let myText  = document.getElementById('intro').childNodes[0].nodeValue;
+        let myTag = document.querySelector('h1');
+        console.log(myTag.nodeValue);
+        
+        console.log(myTag.nodeName);
+        document.getElementById('demo').innerHTML = myText;
+
+
+        
+        
+    </script>
+</body>
+</html>

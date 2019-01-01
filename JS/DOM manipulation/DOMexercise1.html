@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Manipulation - Catch Password Validation</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <input type="password" required id="password" placeholder="your password">
+    <input type="password" requuired id="cpassword" placeholder="your password">
+    <div id="message"></div>
+    <button>Confirm Password</button>
+     
+    <script>
+        document.getElementById('demo').innerHTML = "Web Component Design Foundation";
+        const para = document.querySelector('p');
+        let initialSize = 18;
+        const inputs = document.querySelectorAll('input');
+        const message  = document.querySelector('div');
+        message.style.display = 'none';
+        const button = document.querySelector('button');
+        
+
+        function pwdConfirm(){
+            if(inputs[0].value == inputs[1].value){
+                message.style.display = 'block';
+                message.style.transitionDuration = `${1.0}s`;
+                inputs.forEach(input =>{
+                    input.style.borderColor = 'green';
+                });
+                message.innerHTML = "password matched";
+            }
+            else{
+                message.style.display = 'block';
+                message.style.transitionDuration = `${1.0}s`;
+                message.innerHTML = "password not matched";
+                inputs.forEach(input =>{
+                    input.style.borderColor = 'red';
+                });
+            }
+            // return (input[0].isEqualNode(input[1])) ? "password matches" : "password not match";
+        }
+        function makeBigger(){
+            initialSize++;
+            para.style.fontSize = `${initialSize}px`;
+            para.style.color = 'red';
+            para.style.transform = `rotate(${0}deg)`; 
+            para.style.transitionDuration = `${1.0}s`;
+        }
+        para.addEventListener("click", makeBigger);
+        button.addEventListener("click", pwdConfirm);
+
+    </script>
+</body>
+</html>

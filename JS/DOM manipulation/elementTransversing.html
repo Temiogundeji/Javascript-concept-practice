@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Element Transversing using DOM</title>
+</head>
+<body>
+    <ul>
+        <li id="a">Foo</li><!--comment-->
+        <li id="b">Bar</li>
+    </ul><!--comment-->
+    <script>
+        let ul = document.querySelector('ul');
+        console.log(ul.firstElementChild.nodeName);
+        console.log(ul.querySelector('#a').nextElementSibling.nodeName);
+        console.log(ul.querySelector('#b').previousElementSibling.nodeName);
+        console.log(ul.nextElementSibling.nodeName);
+        console.log(ul.children);
+        console.log(ul.firstElementChild.parentElement);
+    </script>
+</body>
+</html>

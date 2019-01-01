@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <ul><!--comment-->
+        <li id="a">Yusuff</li>
+        <li id="b">Habeeb</li>
+        <!--comment-->
+<script>
+
+    let ul = document.querySelector('ul');
+    console.log(ul.parentNode.nodeName);
+    console.log(ul.firstChild.nodeName);
+    console.log(ul.lastChild.nodeName);
+    console.log(ul.querySelector('#a').nextSibling.nodeName);
+    console.log(ul.querySelector('#b').previousSibling.nodeName);
+</script>
+</body>
+</html>
