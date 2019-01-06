@@ -7,6 +7,17 @@
     <title>DOM Events</title>
 </head>
 <body>
-    
+    <button type="submit">Click</button>
+    <p>Nothing is clicked</p>
+    <script>
+        window.addEventListener("click",()=>{
+            console.log("you just clicked on the window");
+        });
+        let button = document.querySelector("button");
+        button.addEventListener("click",()=>{
+            console.log("you just clicked on the button");
+        });
+        
+    </script>
 </body>
 </html>
