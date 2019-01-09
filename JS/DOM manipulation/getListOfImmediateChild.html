@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <ul>
+        <li class="just"><a href="">Home</a></li>
+        <li class="just"><a href="">About</a></li>
+        <li class="just"><a href="">Contact</a></li>
+    </ul>
+    <button>Submit</button>
+    <textarea></textarea>
+    <script>
+        let ulElemChildNode = document.querySelector('ul').childNodes;
+        let button = document.querySelector('button');
+        let ulElement = document.querySelector('ul');
+        let activeElement = document.querySelector('textarea').focus();
+        console.log(document.activeElement);
+        // console.log(ulElemChildNode);
+        button.addEventListener("click", (e)=>{
+            e.preventDefault();
+            Array.prototype.map.call(ulElemChildNode,(item)=>{
+                // console.log(item);
+                item.classList.toggle('just');
+            });
+        });
+        
+    </script>
+    <style>
+        .just{
+            display: inline;
+            text-decoration: none;
+            list-style-type: none;
+        }
+    </style>
+</body>
+</html>
