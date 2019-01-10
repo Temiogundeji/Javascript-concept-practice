@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll Test</title>
+</head>
+<body>
+    <header>
+        <h1>Javascript is awesome</h1>
+    </header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Sign Up</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+            <main class="main-elem">
+                    <section>
+                            <h2>First Paragraph</h2>
+                        <p>
+                            xfoeh rghhreithowrue hgretctorht owh lwiyiwtihyitciritc.It's my hope that after reading this book, you will be equipped to either better understand your
+                            JavaScript library of choice, or better yet, be equipped to write your own JavaScript solutions. Either
+                            way this book alone was not written to be a definitive guide to the language. From here, I would
+                            recommend reading, or re-reading, the following books so that the topics here may be reinforced from a
+                            different voice, and additional JavaScript topics may be examined and explored.
+                        </p>
+                    </section>
+                    <section>
+                            <h2>Second Paragraph</h2>
+                        <p>
+                            xfoeh rghhreithowrue hgretctorht owh lwiyiwtihyitciritc.It's my hope that after reading this book, you will be equipped to either better understand your
+                            JavaScript library of choice, or better yet, be equipped to write your own JavaScript solutions. Either
+                            way this book alone was not written to be a definitive guide to the language. From here, I would
+                            recommend reading, or re-reading, the following books so that the topics here may be reinforced from a
+                            different voice, and additional JavaScript topics may be examined and explored.
+                        </p>
+                    </section>
+                    <section>
+                            <h2>Third Paragraph</h2>
+                        <p>
+                            xfoeh rghhreithowrue hgretctorht owh lwiyiwtihyitciritc.It's my hope that after reading this book, you will be equipped to either better understand your
+                            JavaScript library of choice, or better yet, be equipped to write your own JavaScript solutions. Either
+                            way this book alone was not written to be a definitive guide to the language. From here, I would
+                            recommend reading, or re-reading, the following books so that the topics here may be reinforced from a
+                            different voice, and additional JavaScript topics may be examined and explored.
+                        </p>
+                    </section>    
+                    </main>
+                    <div class="contact">
+                        <h2>Contact us here</h2>
+                        <p>
+                                <label for="firstname">First Name</label>
+                                <input type="text" placeholder="your name here">
+                                <label for="email">First Name</label>
+                                <input type="email" placeholder="your email here">
+                        </p>
+                        <p>
+                            <label for="message">Message</label>
+                            <textarea placeholder="your message here" id="message"></textarea>
+                        </p>
+                        <p>
+                            <input type="submit" value="Submit">
+                        </p>
+                    </div>
+                    <footer>
+                        <p>
+                                &#167; Copyright 2019.
+                        </p>
+                    </footer>
+    </div>
+    <script>
+        const nav = document.querySelector('.main-nav');
+        let topOfNav = nav.offsetTop;
+
+        function fixNav(){
+            if(scrollY >= topOfNav){
+                document.body.style.paddingTop = nav.offsetHeight + "px";
+                document.body.classList.add('fixed-nav');
+            }
+            else{
+                document.body.classList.remove('fixed-nav');
+                document.body.style.paddingTop = 0;
+            }
+        }
+        function scrollToId(){
+            // document.querySelector('content').children[4].scrollIntoView(true);
+            const parentDiv = document.querySelector('.container');
+            const navList = document.querySelector('ul');
+
+            if(navList.childNodes[0]){
+                navList.children[0]
+            }
+
+        }
+        let allElem = Array.from(navList.childNodes);
+        navList.addEventListener("click", ()=>{
+
+        });
+        window.addEventListener("scroll", (e)=>{
+            e.preventDefault();
+            fixNav();
+        });
+    </script>
+    <style>
+        html{
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            scrollbar-face-color: chocolate;
+            background-color:rgb(107, 17, 224);
+            font-family: Helvetica,Arial,sans-serif;
+        }
+        body.fixed-nav .container {
+        transform: scale(1);
+        }
+        body .fixed-nav nav{
+            box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+            position:fixed;
+        }
+        body{
+            margin:0;
+            color:#e9e9dd;
+            line-height: 1.5;
+        }
+        *,*:before, *:after {
+            box-sizing: inherit;
+        }
+        header{
+            text-align:center;
+        }
+        header h1{
+            color:#eee;
+        }
+        h2{
+            color:rgb(7, 6, 6);
+            margin: 20px 0 20px 0px;
+        }
+       nav{
+           top:0;
+           background-color:rgb(24, 14, 14);
+           color:rgb(211, 203, 203);   
+           z-index: 1;
+           position: relative;  
+        }
+        nav  ul{
+            display:flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .main-nav ul li{
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            flex:1;
+        }
+        .main-nav ul li a{
+            color:#ccc;
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+            color: white;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+        body .fixed-nav nav{
+            position: fixed;
+            box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+  
+        }
+        .container{                 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            max-width: 700px;
+            margin: 100px auto;
+            padding:50px;
+        }
+        .contact{
+            background:radial-gradient(30deg, #fffccc,#aad4d4);
+            padding:50px;
+            text-align:center;
+        }
+        footer{
+            background-color:rgb(51, 33, 33);
+            color:#ccc;
+            text-align:center;
+            width: 100%;
+        }
+    </style>
+</body>
+</html>

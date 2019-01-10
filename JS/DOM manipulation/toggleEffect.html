@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="visible">
+    <h1>I am child of the world!!</h1>
+</div>
+<script>
+var elm = document.querySelector('div');
+elm.classList.toggle('visible');
+elm.classList.toggle('grow');
+console.log(elm.className); //'grow'
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="visible"></div>
+<button>Click Me</button>
+<script>
+    function toggleEffect(){
+        let elm = document.querySelector('div');
+        let button = document.querySelector('button');
+        button.addEventListener("click",()=>{
+        elm.classList.toggle('visible');
+    });
+    elm.classList.toggle('grow');
+    console.log(elm.className); //'grow'
+}
+toggleEffect();
+
+</script>
+<style>
+    .visible{
+        display: none;
+    }
+    h1{
+        text-transform:capitalize;
+        transition: 0.5s;
+        transform: scaleX(25deg);
+        color:#eebb00;
+        background-color:blueviolet;
+        padding:5px;
+    }
+</style>
+</body>
+</html>
