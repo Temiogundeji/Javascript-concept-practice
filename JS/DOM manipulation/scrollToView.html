@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <title>ScrollTest</title>
+    </head>
+    <body>
+        <header>
+            <h1>This is really a play.</h1>
+        </header>
+        <nav>
+            <ul><li><a href="#">Sleep</a></li></ul>
+            <ul><li><a href="#">Code</a></li></ul>
+            <ul><li><a href="#">Loop</a></li></ul>
+            <ul><li><a href="#">Play</a></li></ul>
+            <ul><li><a href="#">Think</a></li></ul>
+        </nav>
+        <div class="container">
+            <section>
+                <h2>First Content</h2>
+                JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.
+            </section>
+            <section>
+                <h2>Second Content</h2>
+                JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.
+            </section>
+            <section>
+                <h2>Third Content</h2>
+                JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.
+                JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.
+            </section>
+            <section>
+                <h2>Fourth Content</h2>
+                JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.
+                JSON looks similar to JavaScript’s way of writing arrays and objects, with a
+                few restrictions. All property names have to be surrounded by double quotes,
+                and only simple data expressions are allowed—no function calls, bindings, or
+                anything that involves actual computation.
+        </div>
+
+        <style>
+            html{
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+            }
+            body{
+                margin:0;
+                padding:0;
+            }
+            .container{
+                background:linear-gradient(45deg, rgb(57, 57, 128), red);
+                font-size:24px;
+                margin:100px auto;
+                max-width: 800px;
+                max-height: 100%;
+                color:rgb(201, 188, 188);
+                overflow: scroll;
+                padding:50px 60px;
+                line-height: 1.5;
+            }
+            header{
+                text-align: center;
+                color:blueviolet;
+                padding:10px 5px;
+            }
+            nav{
+                background-color:rgb(19, 14, 14);
+            }
+            nav ul{
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content:center;
+                margin:0;
+                padding:20px;
+            }
+            nav ul li{
+                list-style:none;
+            }
+            nav ul li a{
+                text-decoration: none;
+                color:blueviolet;
+            }
+
+        </style>
+        <script>
+           function scrollToId(){
+            const parentDiv = document.querySelector('.container');
+            const navList = document.querySelector('ul').childNodes;
+
+            Array.prototype.forEach.call(navList,(item)=>{
+                item.addEventListener("click", ()=>{
+                    if(navList[0]){
+                        parentDiv.children[0].scrollIntoView(true);
+
+                    }
+                });
+            });
+           }
+           scrollToId();
+        </script>
+    </body>
+</html>

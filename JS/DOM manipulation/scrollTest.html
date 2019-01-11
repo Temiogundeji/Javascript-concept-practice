@@ -30,7 +30,7 @@
                             different voice, and additional JavaScript topics may be examined and explored.
                         </p>
                     </section>
-                    <section>
+                    <!-- <section>
                             <h2>Second Paragraph</h2>
                         <p>
                             xfoeh rghhreithowrue hgretctorht owh lwiyiwtihyitciritc.It's my hope that after reading this book, you will be equipped to either better understand your
@@ -39,7 +39,7 @@
                             recommend reading, or re-reading, the following books so that the topics here may be reinforced from a
                             different voice, and additional JavaScript topics may be examined and explored.
                         </p>
-                    </section>
+                    </section> -->
                     <section>
                             <h2>Third Paragraph</h2>
                         <p>
@@ -90,21 +90,24 @@
         function scrollToId(){
             // document.querySelector('content').children[4].scrollIntoView(true);
             const parentDiv = document.querySelector('.container');
-            const navList = document.querySelector('ul').childNodes;
+            let navList = document.querySelector('ul').childNodes;
 
             Array.prototype.forEach.call(navList,(item)=>{
                 console.log(item);
                 item.addEventListener("click",(e)=>{
                     e.preventDefault();
-                    if(navList[0]){
+                if(navList[0]){
                     parentDiv.children[0].scrollIntoView(true);
                 }
                 else if(navList[1]){
                     parentDiv.children[1].scrollIntoView(true);
                 }
                 else if(navList[2]){
-                    parentDiv.childNodes[2].scrollIntoView(true);
+                    parentDiv.children[2].scrollIntoView(true);
                 }
+                else{
+                    parentDiv.children[0].scrollIntoView(true);
+                };
             });
         });
 
