@@ -25,6 +25,9 @@ while(fund > 1 && fund < 100){
     }
     else{
         let remaining = totalBet;
+        do{
+            
+        }while(remaining > 0);
     }
 }
 
